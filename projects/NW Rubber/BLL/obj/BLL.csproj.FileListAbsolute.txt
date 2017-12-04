@@ -25,3 +25,12 @@ F:\【♛】Project\NW Rubber\BLL\bin\Release\NWR.Model.pdb
 F:\【♛】Project\NW Rubber\BLL\obj\Release\ResolveAssemblyReference.cache
 F:\【♛】Project\NW Rubber\BLL\obj\Release\NWR.BLL.dll
 F:\【♛】Project\NW Rubber\BLL\obj\Release\NWR.BLL.pdb
+C:\Sanlone\xyht\projects\NW Rubber\BLL\bin\Release\NWR.BLL.dll
+C:\Sanlone\xyht\projects\NW Rubber\BLL\bin\Release\NWR.BLL.pdb
+C:\Sanlone\xyht\projects\NW Rubber\BLL\bin\Release\NWR.DAL.dll
+C:\Sanlone\xyht\projects\NW Rubber\BLL\bin\Release\NWR.Model.dll
+C:\Sanlone\xyht\projects\NW Rubber\BLL\bin\Release\NWR.DAL.pdb
+C:\Sanlone\xyht\projects\NW Rubber\BLL\bin\Release\NWR.Model.pdb
+C:\Sanlone\xyht\projects\NW Rubber\BLL\obj\Release\ResolveAssemblyReference.cache
+C:\Sanlone\xyht\projects\NW Rubber\BLL\obj\Release\NWR.BLL.dll
+C:\Sanlone\xyht\projects\NW Rubber\BLL\obj\Release\NWR.BLL.pdb
