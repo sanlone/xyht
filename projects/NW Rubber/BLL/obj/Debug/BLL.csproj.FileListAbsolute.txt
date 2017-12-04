@@ -1,0 +1,9 @@
+E:\Sanlone\向阳航天材料\NW Rubber\BLL\bin\Debug\NWR.BLL.dll
+E:\Sanlone\向阳航天材料\NW Rubber\BLL\bin\Debug\NWR.BLL.pdb
+E:\Sanlone\向阳航天材料\NW Rubber\BLL\bin\Debug\NWR.DAL.dll
+E:\Sanlone\向阳航天材料\NW Rubber\BLL\bin\Debug\NWR.Model.dll
+E:\Sanlone\向阳航天材料\NW Rubber\BLL\bin\Debug\NWR.DAL.pdb
+E:\Sanlone\向阳航天材料\NW Rubber\BLL\bin\Debug\NWR.Model.pdb
+E:\Sanlone\向阳航天材料\NW Rubber\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\Sanlone\向阳航天材料\NW Rubber\BLL\obj\Debug\NWR.BLL.dll
+E:\Sanlone\向阳航天材料\NW Rubber\BLL\obj\Debug\NWR.BLL.pdb

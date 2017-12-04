@@ -1,0 +1,4 @@
+E:\Sanlone\向阳航天材料\NW Rubber\Model\bin\Debug\NWR.Model.dll
+E:\Sanlone\向阳航天材料\NW Rubber\Model\bin\Debug\NWR.Model.pdb
+E:\Sanlone\向阳航天材料\NW Rubber\Model\obj\Debug\NWR.Model.dll
+E:\Sanlone\向阳航天材料\NW Rubber\Model\obj\Debug\NWR.Model.pdb
