@@ -51,7 +51,7 @@ namespace NWR.DAL
         /// </summary>
         public CommonDbConneciton(string connectionString, DbProviderType providerType)
         {
-            ConnectionString = connectionString;
+            ConnectionString = ConnectionString;
             _providerFactory = ProviderFactory.GetDbProviderFactory(providerType);
             if (_providerFactory == null)
             {

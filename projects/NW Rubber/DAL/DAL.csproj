@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonBaseConnection\CommonDbConneciton.cs" />
+    <Compile Include="CommonBaseConnection\EntityHelper.cs" />
     <Compile Include="CommonBaseConnection\EntityReader.cs" />
     <Compile Include="CommonClass.cs" />
     <Compile Include="CommonEncryption\Base64encryption.cs" />

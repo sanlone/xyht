@@ -279,7 +279,8 @@ namespace NWR.DAL
             while (reader.Read())
             {
                 model = new Users();
-                GetUsers(reader, ref model);
+                //GetUsers(reader, ref model);
+                model = GetUsers(reader);
                 ls.Add(model);
             }
 
@@ -302,7 +303,8 @@ namespace NWR.DAL
 
             while (reader.Read())
             {
-                GetUsers(reader, ref model);
+                //GetUsers(reader, ref model);
+                model = GetUsers(reader);
             }
 
             reader.Close();
@@ -343,7 +345,10 @@ namespace NWR.DAL
             }
             model.Remark = Convert.ToString(reader["Remark"]);
         }
-
+        private Users GetUsers(SqlDataReader reader)
+        {
+            return EntityHelper.GetEntityListByDT<Users>(reader);
+        }
         /// <summary>
         /// 获取用户类型
         /// </summary>
