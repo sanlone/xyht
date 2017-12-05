@@ -26,3 +26,10 @@ C:\Sanlone\xyht\projects\NW Rubber\DAL\bin\Release\NWR.Model.pdb
 C:\Sanlone\xyht\projects\NW Rubber\DAL\obj\Release\ResolveAssemblyReference.cache
 C:\Sanlone\xyht\projects\NW Rubber\DAL\obj\Release\NWR.DAL.dll
 C:\Sanlone\xyht\projects\NW Rubber\DAL\obj\Release\NWR.DAL.pdb
+D:\Sanlone\xyht\projects\NW Rubber\DAL\bin\Release\NWR.DAL.dll
+D:\Sanlone\xyht\projects\NW Rubber\DAL\bin\Release\NWR.DAL.pdb
+D:\Sanlone\xyht\projects\NW Rubber\DAL\bin\Release\NWR.Model.dll
+D:\Sanlone\xyht\projects\NW Rubber\DAL\bin\Release\NWR.Model.pdb
+D:\Sanlone\xyht\projects\NW Rubber\DAL\obj\Release\ResolveAssemblyReference.cache
+D:\Sanlone\xyht\projects\NW Rubber\DAL\obj\Release\NWR.DAL.dll
+D:\Sanlone\xyht\projects\NW Rubber\DAL\obj\Release\NWR.DAL.pdb
