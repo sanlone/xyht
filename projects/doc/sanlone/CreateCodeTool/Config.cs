@@ -13,7 +13,7 @@ namespace CreateCodeTool
     public partial class Config : Form
     {
         #region 变量
-        public string str = "Data Source={0};Initial Catalog=master;User ID={1};password={2}";
+        public string connString = "Data Source={0};Initial Catalog=master;User ID={1};password={2}";
         public string FilePath = string.Empty;
         public string EntityNameSpace = "ZM.Entity";
         public string DALNameSpace = "ZM.DAL";
@@ -36,9 +36,9 @@ namespace CreateCodeTool
         }
         private void btnOK_Click(object sender, EventArgs e)
         {
-            str = string.Format(str, txtName.Text.Trim(), txtUser.Text.Trim(), txtPWD.Text.Trim());
+            connString = string.Format(connString, txtName.Text.Trim(), txtUser.Text.Trim(), txtPWD.Text.Trim());
 
-            SqlConnection conn = new SqlConnection(str);
+            SqlConnection conn = new SqlConnection(connString);
             try
             {
                 conn.Open();
@@ -73,7 +73,7 @@ namespace CreateCodeTool
         private void cmbDBName_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.checkedListBox1.Items.Clear();
-            SqlConnection conn = new SqlConnection(str);
+            SqlConnection conn = new SqlConnection(connString);
             try
             {
                 conn.Open();
@@ -82,7 +82,7 @@ namespace CreateCodeTool
                 SqlDataReader reader = command.ExecuteReader();
                 if (!reader.HasRows)
                 {
-                    this.label1.Text = "(*^__^*) 嘻嘻……数据库里没有表！";
+                    Comm.msg= "(*^__^*) 嘻嘻……数据库里没有表！";
                 }
                 while (reader.Read())
                 {
@@ -90,12 +90,12 @@ namespace CreateCodeTool
                     {
                         this.checkedListBox1.Items.Add(reader[i]);
                     }
-                    this.label1.Text = "已成功的得到该数据库下的所有表！！";
+                    Comm.msg= "已成功的得到该数据库下的所有表！！";
                 } reader.Close();
             }
             catch (Exception ex)
             {
-                this.label1.Text = ex.Message;
+                Comm.msg= ex.Message;
             }
             finally
             {
@@ -114,7 +114,7 @@ namespace CreateCodeTool
             }
             catch (Exception ex)
             {
-                this.label1.Text = ex.Message;
+                Comm.msg= ex.Message;
             }
         }
 
@@ -134,11 +134,11 @@ namespace CreateCodeTool
                 string[] col = this.txtColumnName.Text.Trim().Split(',');
                 if (WY.createsql(table, sqltext, col, FilePath, DALNameSpace))
                 {
-                    this.label1.Text = "生成成功！~!~";
+                    Comm.msg= "生成成功！~!~";
                 }
                 else
                 {
-                    this.label1.Text = "生成失败！~!~";
+                    Comm.msg= "生成失败！~!~";
                 }
                 return;
             }
@@ -161,7 +161,7 @@ namespace CreateCodeTool
             }
             catch (Exception ex)
             {
-                this.label1.Text = ex.Message;
+                Comm.msg= ex.Message;
             }
         }
         private void txtSelectPath_Click(object sender, EventArgs e)
@@ -196,7 +196,7 @@ namespace CreateCodeTool
         public Dictionary<string, string> GetMethod(string table)
         {
             Dictionary<string, string> list = new Dictionary<string, string>();
-            SqlConnection conn = new SqlConnection(str);
+            SqlConnection conn = new SqlConnection(connString);
             try
             {
                 conn.Open();
@@ -210,7 +210,7 @@ namespace CreateCodeTool
             }
             catch (Exception ex)
             {
-                this.label1.Text = ex.Message;
+                Comm.msg= ex.Message;
             }
             finally
             {
@@ -223,7 +223,7 @@ namespace CreateCodeTool
         public Dictionary<string, string> Getfield(string table)
         {
             Dictionary<string, string> list = new Dictionary<string, string>();
-            SqlConnection conn = new SqlConnection(str);
+            SqlConnection conn = new SqlConnection(connString);
             try
             {
                 conn.Open();
@@ -237,7 +237,7 @@ namespace CreateCodeTool
             }
             catch (Exception ex)
             {
-                this.label1.Text = ex.Message;
+                Comm.msg= ex.Message;
             }
             finally
             {
@@ -254,7 +254,7 @@ namespace CreateCodeTool
         {
             Dictionary<string, string> list = GetMethod(classname);
             Dictionary<string, string> wanz = new Dictionary<string, string>();
-            SqlConnection conn = new SqlConnection(str);
+            SqlConnection conn = new SqlConnection(connString);
             string sql = "use " + this.cmbDBName.Text + "  ; EXEC sp_columns '" + classname + "'";
             try
             {
@@ -284,11 +284,11 @@ namespace CreateCodeTool
                         wanz.Add(reader["COLUMN_NAME"].ToString().Substring(0, 1).ToLower() + reader["COLUMN_NAME"].ToString().Substring(1), getType(reader["TYPE_NAME"].ToString()));
                     }
                 } reader.Close();
-                this.label1.Text = "已成功的得到该数据库下的所有表！！";
+                Comm.msg= "已成功的得到该数据库下的所有表！！";
             }
             catch (Exception ex)
             {
-                this.label1.Text = ex.Message;
+                Comm.msg= ex.Message;
             }
             finally
             {
@@ -299,7 +299,7 @@ namespace CreateCodeTool
         }
         public SqlDataReader GetReader(string classname)
         {
-            SqlConnection conn = new SqlConnection(str);
+            SqlConnection conn = new SqlConnection(connString);
             string sql = "use " + this.cmbDBName.Text + "  ; EXEC sp_columns '" + classname + "'";
             try
             {
@@ -310,7 +310,7 @@ namespace CreateCodeTool
             }
             catch (Exception ex)
             {
-                this.label1.Text = ex.Message;
+                Comm.msg= ex.Message;
             }
             finally
             {
@@ -362,7 +362,7 @@ namespace CreateCodeTool
             Dictionary<string, string> list = GetMethod(className);
             Dictionary<string, string> field = Getfield(className);
             //select [name] from syscolumns where id=object_id(N'你的表名') and COLUMNPROPERTY(id,name,'IsIdentity')=1
-            SqlConnection conn = new SqlConnection(str);
+            SqlConnection conn = new SqlConnection(connString);
             try
             {
                 conn.Open();
@@ -886,11 +886,11 @@ namespace CreateCodeTool
                     //关闭文件流
                     fs.Close();
                 }
-                this.label1.Text = "生成成功！！O(∩_∩)O哈哈~";
+                Comm.msg= "生成成功！！O(∩_∩)O哈哈~";
             }
             catch (Exception ex)
             {
-                this.label1.Text = ex.Message;
+                Comm.msg= ex.Message;
             }
             finally
             {
@@ -952,11 +952,11 @@ namespace CreateCodeTool
                 //关闭文件流
                 fs.Close();
 
-                this.label1.Text = "生成成功！~!~";
+                Comm.msg= "生成成功！~!~";
             }
             catch (Exception ex)
             {
-                this.label1.Text = ex.Message;
+                Comm.msg= ex.Message;
             }
         }
         /// <summary>
@@ -1113,11 +1113,11 @@ namespace CreateCodeTool
                 //关闭文件流
                 fs.Close();
 
-                this.label1.Text = "已经成功生Dbhelper类！！！~!~";
+                Comm.msg= "已经成功生Dbhelper类！！！~!~";
             }
             catch (Exception ex)
             {
-                this.label1.Text = ex.Message;
+                Comm.msg= ex.Message;
             }
         }
         #endregion

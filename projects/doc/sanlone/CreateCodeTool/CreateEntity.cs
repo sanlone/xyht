@@ -14,7 +14,7 @@ namespace CreateCodeTool
         /// <param name="className"></param>
         public static void PrintLine(string className, string FilePath, string EntityNameSpace)
         {
-            Dictionary<string, string> list = Print(className);
+            Dictionary<string, string> list = Print(className,"");
             try
             {
 
@@ -62,11 +62,11 @@ namespace CreateCodeTool
                 //关闭文件流
                 fs.Close();
 
-                //this.label1.Text = "生成成功！~!~";
+                //Comm.msg= "生成成功！~!~";
             }
             catch (Exception ex)
             {
-               // this.label1.Text = ex.Message;
+               // Comm.msg= ex.Message;
             }
         }
         /// <summary>
@@ -74,12 +74,12 @@ namespace CreateCodeTool
         /// </summary>
         /// <param name="list"></param>
         /// <param name="classname"></param>
-        public static Dictionary<string, string> Print(string classname)
+        public static Dictionary<string, string> Print(string classname, string str)
         {
             Dictionary<string, string> list = GetMethod(classname);
             Dictionary<string, string> wanz = new Dictionary<string, string>();
             SqlConnection conn = new SqlConnection(str);
-            string sql = "use " + this.cmbDBName.Text + "  ; EXEC sp_columns '" + Comm.project.DALNameSpace + "'";
+            string sql = "use " + Comm.project.DBName + "  ; EXEC sp_columns '" + Comm.project.DALNameSpace + "'";
             try
             {
                 conn.Open();
@@ -108,17 +108,48 @@ namespace CreateCodeTool
                         wanz.Add(reader["COLUMN_NAME"].ToString().Substring(0, 1).ToLower() + reader["COLUMN_NAME"].ToString().Substring(1), getType(reader["TYPE_NAME"].ToString()));
                     }
                 } reader.Close();
-                this.label1.Text = "已成功的得到该数据库下的所有表！！";
+                
+                Comm.msg= "已成功的得到该数据库下的所有表！！";
             }
             catch (Exception ex)
             {
-                this.label1.Text = ex.Message;
+                Comm.msg= ex.Message;
             }
             finally
             {
                 conn.Close();
             }
             return wanz;
+        }
+        /// <summary>
+        /// 这个方法是得到这张表是否有外间存在
+        /// </summary>
+        /// <param name="table"></param>
+        /// <returns></returns>
+        public static Dictionary<string, string> GetMethod(string table)
+        {
+            Dictionary<string, string> list = new Dictionary<string, string>();
+            SqlConnection conn = new SqlConnection(str);
+            try
+            {
+                conn.Open();
+                SqlCommand commend = new SqlCommand("use " + this.cmbDBName.Text + "  ;EXEC sp_fkeys @fktable_name = N'" + table + "'", conn);
+                SqlDataReader reader = commend.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(reader["FKCOLUMN_NAME"].ToString(), reader["PKTABLE_NAME"].ToString());
+
+                } reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Comm.msg = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return list;
         }
     }
 }

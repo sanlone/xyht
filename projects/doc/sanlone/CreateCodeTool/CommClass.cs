@@ -6,11 +6,17 @@ namespace CreateCodeTool
 {
     public class Project
     {
+        string _DBName = "";
         string _EntityNameSpace = "";
         string _DALNameSpace = "";
         string _DBNameSpace = "";
         public Project()
         { }
+        public string DBName
+        {
+            get { return this._DBName; }
+            set { this._DBName = value; }
+        }
         public string EntityNameSpace
         {
             get { return this._EntityNameSpace; }
@@ -30,6 +36,11 @@ namespace CreateCodeTool
     }
     public static  class Comm
     {
+        public static string ConnString = "";
+        public static string connStringFormat = "Data Source={0};Initial Catalog=master;User ID={1};password={2}";
         public static Project project;
+        public static string msg = "";
+        public static string FilePath = "";
     }
+
 }
