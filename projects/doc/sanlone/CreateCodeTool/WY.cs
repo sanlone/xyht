@@ -9,7 +9,7 @@ namespace CreateCodeTool
     {
         public static bool createsql(string table, string sqltext, string[] col, string FilePath,string DALNameSpace)
         {
-            //文件名称
+            // 文件名称
             //string FileName = className.Substring(0, 1).ToUpper() + className.Substring(1).ToString() + ".cs";
             string FileName = table + ".cs";
             FileName = FilePath + FileName;
