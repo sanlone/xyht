@@ -159,7 +159,7 @@ namespace CreateCodeTool
             Comm.project.DBName = this.cmbDBName.Text;
             Comm.project.EntityNameSpace = this.txtNamespace.Text.Trim();
             Comm.project.DALNameSpace = this.txtDALNameSpace.Text.Trim();
-            Comm.project.DBNameSpace = this.txtDBNameSpace.Text.Trim();
+            Comm.project.BLLNameSpace = this.txtDBNameSpace.Text.Trim();
 
             switch (this.cmbSysType.Text)
             {
@@ -172,6 +172,7 @@ namespace CreateCodeTool
                             string tableName = this.checkedListBox1.Items[i].ToString();
                             XYHT.CreateModel(tableName);
                             //生成DAL
+                            XYHT.CreateDAL(tableName);
                             //生成DAL
                         }
                     }

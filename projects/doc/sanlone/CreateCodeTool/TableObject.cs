@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace CreateCodeTool
 {
@@ -168,6 +169,30 @@ namespace CreateCodeTool
                 SqlCommand command1 = new SqlCommand(sql, conn);
                 SqlDataReader reader = command1.ExecuteReader();
                 return reader;
+            }
+            catch (Exception ex)
+            {
+                Comm.msg = ex.Message;
+            }
+            finally
+            {
+                //conn.Close();
+            }
+            return null;
+        }
+        public static DataTable GetTable(string classname)
+        {
+            SqlConnection conn = new SqlConnection(Comm.ConnString);
+            string sql = "use " + Comm.project.DBName + "  ; EXEC sp_columns '" + classname + "'";
+            try
+            {
+                conn.Open();
+                SqlCommand command1 = new SqlCommand(sql, conn);
+                //SqlDataReader reader = command1.ExecuteReader();
+                SqlDataAdapter da = new SqlDataAdapter(command1);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                return ds.Tables[0];
             }
             catch (Exception ex)
             {

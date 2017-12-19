@@ -9,7 +9,7 @@ namespace CreateCodeTool
         string _DBName = "";
         string _EntityNameSpace = "";
         string _DALNameSpace = "";
-        string _DBNameSpace = "";
+        string _BLLNameSpace = "";
         public Project()
         { }
         public string DBName
@@ -27,10 +27,10 @@ namespace CreateCodeTool
             get { return this._DALNameSpace; }
             set { this._DALNameSpace = value; }
         }
-        public string DBNameSpace
+        public string BLLNameSpace
         {
-            get { return this._DBNameSpace; }
-            set { this._DBNameSpace = value; }
+            get { return this._BLLNameSpace; }
+            set { this._BLLNameSpace = value; }
         }
        
     }

@@ -48,12 +48,10 @@ namespace CreateCodeTool
                 this.cmbDBName.DataSource = ds.Tables[0].DefaultView;
                 this.cmbDBName.DisplayMember = "name";
                 this.cmbDBName.SelectedIndex = 0;
-
-
                 MessageBox.Show("连接成功并拿到数据！~！");
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
 
@@ -1128,7 +1126,7 @@ namespace CreateCodeTool
                   Project pro= new Project();
                   pro.EntityNameSpace = this.txtNamespace.Text.Trim();
                   pro.DALNameSpace = this.txtDALNameSpace.Text.Trim();
-                  pro.DBNameSpace = this.txtDBNameSpace.Text.Trim();
+                  pro.BLLNameSpace = this.txtDBNameSpace.Text.Trim();
                   return pro;
         }
         #endregion
