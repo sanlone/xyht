@@ -51,6 +51,10 @@ namespace CreateCodeTool
         {
             CreateCode();
         }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         #endregion
 
         #region 连接Master数据库
@@ -92,7 +96,7 @@ namespace CreateCodeTool
             try
             {
                 conn.Open();
-                string sql = "use " + this.cmbDBName.Text + "  ; select name from dbo.sysobjects  where xtype='U' and sysstat<200";
+                string sql = "use " + this.cmbDBName.Text + "  ; select name from dbo.sysobjects  where xtype='U' and sysstat<200  order by name";
                 SqlCommand command = new SqlCommand(sql, conn);
                 SqlDataReader reader = command.ExecuteReader();
                 if (!reader.HasRows)
@@ -174,6 +178,7 @@ namespace CreateCodeTool
                             //生成DAL
                             XYHT.CreateDAL(tableName);
                             //生成DAL
+                            XYHT.CreateBLL(tableName);
                         }
                     }
                     break;
@@ -191,6 +196,8 @@ namespace CreateCodeTool
             Application.DoEvents();
         }
         #endregion
+
+
 
     }
 }

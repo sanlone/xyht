@@ -41,6 +41,7 @@
     <Compile Include="QX\Roles.cs" />
     <Compile Include="QX\UserRoles.cs" />
     <Compile Include="QX\Users.cs" />
+    <Compile Include="SC\SC_OrderDetailedArrange.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

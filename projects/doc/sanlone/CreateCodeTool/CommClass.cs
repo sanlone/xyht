@@ -41,6 +41,11 @@ namespace CreateCodeTool
         public static Project project;
         public static string msg = "";
         public static string FilePath = "";
+
+        //บ๓ืบร๛
+        public static string Sys_Entity = "";
+        public static string Sys_BLL = "Bll";
+        public static string Sys_DAL = "Dao";
     }
 
 }

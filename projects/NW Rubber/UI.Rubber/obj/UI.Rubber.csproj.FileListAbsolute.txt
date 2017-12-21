@@ -112,3 +112,4 @@ D:\Sanlone\xyht\projects\NW Rubber\UI.Rubber\obj\Release\NWR.UI.UserControls.UC_
 D:\Sanlone\xyht\projects\NW Rubber\UI.Rubber\obj\Release\NWR.UI.UserControls.UC_UserManage.resources
 D:\Sanlone\xyht\projects\NW Rubber\UI.Rubber\obj\Release\NWR.UI.UserControls.UC_UserRoles.resources
 D:\Sanlone\xyht\projects\NW Rubber\UI.Rubber\obj\Release\UI.Rubber.csproj.GenerateResource.Cache
+D:\Sanlone\xyht\projects\NW Rubber\UI.Rubber\obj\Release\NWR.UI.Test.resources

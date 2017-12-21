@@ -9,6 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CreateCodeTool</RootNamespace>
     <AssemblyName>CreateCodeTool</AssemblyName>
+    <ApplicationIcon>createcode.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -90,6 +91,10 @@
     <Compile Include="TableObject.cs" />
     <Compile Include="WY.cs" />
     <Compile Include="XYHT.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="createcode.ico" />
+    <Content Include="ico\createcode.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

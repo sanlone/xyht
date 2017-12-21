@@ -128,6 +128,45 @@ namespace CreateCodeTool
             }
             return "string";
         }
+        /// <summary>
+        /// 进行类型转换
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static string getSysType(string type)
+        {
+            switch (type)
+            {
+                case "varchar":
+                case "varbinary":
+                case "ntext":
+                case "char":
+                case "nvarchar":
+                case "nchar":
+                case "text":
+                    return "NVarChar";
+
+                case "smallint":
+                case "int":
+                case "bit":
+                case "bigint":
+                case "int identity":
+                    return "Int";
+
+                case "money":
+                case "float":
+                case "decimal":
+                case "numeric":
+                case "smallmoney":
+                    return "Double";
+
+                case "smalldatetime":
+                case "datetime":
+                case "timestamp":
+                    return "DateTime";
+            }
+            return "NVarChar";
+        }
         //这个方法是查询出主表的那个字段所对应的
         public static Dictionary<string, string> Getfield(string table)
         {

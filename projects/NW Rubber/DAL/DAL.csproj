@@ -47,6 +47,7 @@
     <Compile Include="QX\RolesDao.cs" />
     <Compile Include="QX\UserRolesDao.cs" />
     <Compile Include="QX\UsersDao.cs" />
+    <Compile Include="SC\SC_OrderDetailedArrangeDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
